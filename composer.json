@@ -1,0 +1,20 @@
+{
+    "name": "masheru/mcv",
+    "description": "Simple website for Library",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Heru Subekti",
+            "email": "heroe_soebekti@yahoo.co.id"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+        "app/Helpers/Gettext.php"
+        ]
+    },
+    "require": {}
+}

@@ -1,0 +1,597 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ZLibrary CMS\n"
+"POT-Creation-Date: 2023-10-27 10:00+0700\n"
+"PO-Revision-Date: 2026-01-19 01:10+0700\n"
+"Last-Translator: Heru Subekti <heroe.soebekti@gmail.com>\n"
+"Language-Team: Indonesian\n"
+"Language: id_ID\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.7\n"
+
+# Core Navigation & Titles
+msgid "Dashboard"
+msgstr "Beranda"
+
+msgid "Content"
+msgstr "Konten"
+
+msgid "News & Articles"
+msgstr "Berita & Artikel"
+
+msgid "Photo Gallery"
+msgstr "Galeri Foto"
+
+msgid "Admin System"
+msgstr "Sistem Admin"
+
+msgid "Static Pages"
+msgstr "Halaman Statis"
+
+msgid "Navigation Menu"
+msgstr "Menu Navigasi"
+
+msgid "User Management"
+msgstr "Manajemen Pengguna"
+
+msgid "Site Settings"
+msgstr "Pengaturan Situs"
+
+msgid "Log Out"
+msgstr "Keluar"
+
+msgid "Welcome"
+msgstr "Selamat Datang"
+
+msgid "Manage all content assets, navigation, and digital information through the interface"
+msgstr "Kelola seluruh aset konten, navigasi, dan informasi digital melalui antarmuka"
+
+msgid "Verified System"
+msgstr "Sistem Terverifikasi"
+
+# Pages Module
+msgid "Pages"
+msgstr "Halaman"
+
+msgid "Manage Pages"
+msgstr "Kelola Halaman"
+
+msgid "Manage static content and navigation menu structures."
+msgstr "Kelola konten statis dan struktur menu navigasi."
+
+msgid "CREATE NEW PAGE"
+msgstr "BUAT HALAMAN BARU"
+
+msgid "Create New Page"
+msgstr "Buat Halaman Baru"
+
+msgid "Page Title"
+msgstr "Judul Halaman"
+
+msgid "Parent Menu"
+msgstr "Menu Induk"
+
+msgid "Slug"
+msgstr "Slug"
+
+msgid "Sub-menu of"
+msgstr "Sub-menu dari"
+
+msgid "Main Menu"
+msgstr "Menu Utama"
+
+msgid "SET AS MAIN MENU"
+msgstr "JADIKAN MENU UTAMA"
+
+msgid "Edit Page"
+msgstr "Edit Halaman"
+
+msgid "Delete Page"
+msgstr "Hapus Halaman"
+
+msgid "Are you sure you want to delete this page and its related menu?"
+msgstr "Apakah Anda yakin ingin menghapus halaman ini dan menu terkaitnya?"
+
+msgid "Page updated successfully"
+msgstr "Halaman berhasil diperbarui"
+
+msgid "New page published successfully"
+msgstr "Halaman baru berhasil diterbitkan"
+
+msgid "Page and associated menu deleted"
+msgstr "Halaman dan menu terkait telah dihapus"
+
+msgid "Failed to delete page or invalid ID"
+msgstr "Gagal menghapus halaman atau ID tidak valid"
+
+# Navigation Module
+msgid "Navigation"
+msgstr "Navigasi"
+
+msgid "Manage Navigation"
+msgstr "Kelola Navigasi"
+
+msgid "Manage navigation and menu order."
+msgstr "Kelola navigasi dan urutan menu."
+
+msgid "Add Menu"
+msgstr "Tambah Menu"
+
+msgid "MAIN"
+msgstr "UTAMA"
+
+msgid "Menu Name"
+msgstr "Nama Menu"
+
+msgid "SAVE MENU"
+msgstr "SIMPAN MENU"
+
+msgid "Cancel Edit"
+msgstr "Batal Edit"
+
+msgid "Navigasi diperbarui"
+msgstr "Navigasi diperbarui"
+
+msgid "Navigation updated successfully"
+msgstr "Navigasi diperbarui"
+
+msgid "Navigation added successfully"
+msgstr "Navigasi berhasil ditambah"
+
+msgid "Navigation deleted successfully"
+msgstr "Navigasi dihapus"
+
+msgid "Order updated"
+msgstr "Urutan diperbarui"
+
+msgid "Failed to save order"
+msgstr "Gagal menyimpan urutan"
+
+msgid "Are you sure you want to delete this menu?"
+msgstr "Apakah Anda yakin ingin menghapus menu ini?"
+
+msgid "Menu name and URL are required"
+msgstr "Nama menu dan URL wajib diisi"
+
+# Gallery Module
+msgid "Manage Gallery"
+msgstr "Kelola Galeri"
+
+msgid "Visual documentation of activities."
+msgstr "Dokumentasi visual kegiatan."
+
+msgid "Asset Edit Mode"
+msgstr "Mode Edit Asset"
+
+msgid "Add New Asset"
+msgstr "Tambah Asset Baru"
+
+msgid "Documentation Title"
+msgstr "Judul Dokumentasi"
+
+msgid "Category"
+msgstr "Kategori"
+
+msgid "Layout Type"
+msgstr "Tipe Layout"
+
+msgid "Standard (Square)"
+msgstr "Standard (Square)"
+
+msgid "Highlight (Tall)"
+msgstr "Highlight (Tinggi)"
+
+msgid "Wide"
+msgstr "Wide (Lebar)"
+
+msgid "Image File"
+msgstr "File Gambar"
+
+msgid "Update Asset"
+msgstr "Update Asset"
+
+msgid "Publish Asset"
+msgstr "Publish Asset"
+
+msgid "Visual"
+msgstr "Visual"
+
+msgid "Asset Information"
+msgstr "Informasi Asset"
+
+msgid "Asset updated successfully"
+msgstr "Aset berhasil diperbarui"
+
+msgid "Asset published successfully"
+msgstr "Aset berhasil dipublikasikan"
+
+msgid "Asset visibility has been changed"
+msgstr "Visibilitas aset telah diubah"
+
+msgid "Asset permanently deleted"
+msgstr "Aset dihapus secara permanen"
+
+# Post/News Module
+msgid "Manage Post"
+msgstr "Kelola Postingan"
+
+msgid "Manage Posts"
+msgstr "Kelola Postingan"
+
+msgid "Add Post"
+msgstr "Tambah Post"
+
+msgid "Entry New Post"
+msgstr "Buat Post Baru"
+
+msgid "Edit Post"
+msgstr "Ubah Postingan"
+
+msgid "Search post title..."
+msgstr "Cari judul postingan..."
+
+msgid "All Categories"
+msgstr "Semua Kategori"
+
+msgid "News"
+msgstr "Berita"
+
+msgid "Article"
+msgstr "Artikel"
+
+msgid "Information"
+msgstr "Informasi"
+
+msgid "Cover"
+msgstr "Sampul"
+
+msgid "Post Editor"
+msgstr "Editor Postingan"
+
+msgid "Publish"
+msgstr "Publikasikan"
+
+msgid "Save Draft"
+msgstr "Simpan Draft"
+
+msgid "Change Image"
+msgstr "Ganti Gambar"
+
+msgid "Are you sure you want to delete this post?"
+msgstr "Apakah Anda yakin ingin menghapus postingan ini?"
+
+msgid "Post saved successfully"
+msgstr "Postingan berhasil disimpan"
+
+msgid "Post deleted permanently"
+msgstr "Postingan dihapus permanen"
+
+msgid "%d posts deleted successfully"
+msgstr "%d postingan berhasil dihapus"
+
+# User Management Module
+msgid "Manage User"
+msgstr "Kelola Pengguna"
+
+msgid "Manage Users"
+msgstr "Kelola Pengguna"
+
+msgid "Create and manage administrative user accounts."
+msgstr "Buat dan kelola akun pengguna administratif."
+
+msgid "User Input Form"
+msgstr "Formulir Input Pengguna"
+
+msgid "Full Name"
+msgstr "Nama Lengkap"
+
+msgid "Username"
+msgstr "Nama Pengguna"
+
+msgid "Role"
+msgstr "Peran"
+
+msgid "Password"
+msgstr "Kata Sandi"
+
+msgid "User Identity"
+msgstr "Identitas Pengguna"
+
+msgid "Authority"
+msgstr "Wewenang"
+
+msgid "Actions"
+msgstr "Aksi"
+
+msgid "Delete this user?"
+msgstr "Hapus pengguna ini?"
+
+msgid "Leave blank if not changing"
+msgstr "Kosongkan jika tidak diubah"
+
+msgid "User updated successfully"
+msgstr "Data pengguna berhasil diperbarui"
+
+msgid "User has been deleted"
+msgstr "Pengguna telah dihapus"
+
+msgid "You cannot delete your own account"
+msgstr "Anda tidak dapat menghapus akun Anda sendiri"
+
+msgid "User not found"
+msgstr "Pengguna tidak ditemukan"
+
+# Settings Module
+msgid "Global Settings"
+msgstr "Pengaturan Global"
+
+msgid "Configure your website identity and global contact information."
+msgstr "Konfigurasi identitas situs web dan informasi kontak global Anda."
+
+msgid "SAVE ALL SETTINGS"
+msgstr "SIMPAN SEMUA PENGATURAN"
+
+msgid "Settings updated successfully"
+msgstr "Pengaturan berhasil diperbarui"
+
+msgid "site title"
+msgstr "Judul Situs"
+
+msgid "site description"
+msgstr "Deskripsi Situs"
+
+msgid "contact email"
+msgstr "Email Kontak"
+
+# General Actions & UI
+msgid "No"
+msgstr "No"
+
+msgid "No data found."
+msgstr "Data tidak ditemukan."
+
+msgid "SAVE DATA"
+msgstr "SIMPAN DATA"
+
+msgid "SAVE CONTENT"
+msgstr "SIMPAN KONTEN"
+
+msgid "Save Changes"
+msgstr "Simpan Perubahan"
+
+msgid "Action"
+msgstr "Aksi"
+
+msgid "Filter"
+msgstr "Saring"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Delete"
+msgstr "Hapus"
+
+msgid "Delete Selected"
+msgstr "Hapus Terpilih"
+
+msgid "Permanently delete?"
+msgstr "Hapus permanen?"
+
+msgid "selected data?"
+msgstr "data terpilih?"
+
+msgid "Total Posts"
+msgstr "Total Postingan"
+
+msgid "Total Gallery"
+msgstr "Total Galeri"
+
+msgid "Total Users"
+msgstr "Total Pengguna"
+
+# Messages & Errors
+msgid "Invalid security token"
+msgstr "Token keamanan tidak valid"
+
+msgid "Invalid image format. Use JPG, PNG or WEBP."
+msgstr "Format gambar tidak valid. Gunakan JPG, PNG atau WEBP."
+
+msgid "Invalid photo format. Use JPG, PNG or WEBP."
+msgstr "Format foto tidak valid. Gunakan JPG, PNG atau WEBP."
+
+msgid "Invalid file format. Please use JPG, PNG, or WEBP."
+msgstr "Format file tidak valid. Gunakan JPG, PNG, atau WEBP."
+
+msgid "Title and content cannot be empty"
+msgstr "Judul dan konten tidak boleh kosong"
+
+msgid "Failed to save to database"
+msgstr "Gagal menyimpan ke database"
+
+msgid "Failed to save user data"
+msgstr "Gagal menyimpan data pengguna"
+
+msgid "Failed to save user to database"
+msgstr "Gagal menyimpan pengguna ke database"
+
+msgid "Failed to delete user"
+msgstr "Gagal menghapus pengguna"
+
+msgid "Failed to update settings"
+msgstr "Gagal memperbarui pengaturan"
+
+msgid "Database operation failed."
+msgstr "Operasi database gagal."
+
+msgid "Konten dihapus"
+msgstr "Konten dihapus"
+
+msgid "All News & Information"
+msgstr "Semua Berita & Informasi"
+
+msgid "Archive"
+msgstr "Arsip"
+
+msgid "Read More"
+msgstr "Baca Selengkapnya"
+
+msgid "Published on"
+msgstr "Diterbitkan pada"
+
+msgid "Previous Post"
+msgstr "Postingan Sebelumnya"
+
+msgid "Next Post"
+msgstr "Postingan Berikutnya"
+
+msgid "Search"
+msgstr "Pencarian"
+
+msgid "Search results for"
+msgstr "Hasil pencarian untuk"
+
+msgid "Keyword is too short (min. 3 characters)."
+msgstr "Kata kunci terlalu pendek (min. 3 karakter)."
+
+msgid "No results found for your search."
+msgstr "Tidak ditemukan hasil untuk pencarian Anda."
+
+msgid "Profile"
+msgstr "Profil"
+
+msgid "Page Not Found"
+msgstr "Halaman Tidak Ditemukan"
+
+msgid "Error"
+msgstr "Galat"
+
+msgid "Sorry, the page you are looking for is not available."
+msgstr "Maaf, halaman yang Anda cari tidak tersedia."
+
+msgid "Internal server error occurred."
+msgstr "Terjadi kesalahan sistem internal."
+
+msgid "Home"
+msgstr "Beranda"
+
+msgid "A system error occurred."
+msgstr "Terjadi kesalahan pada sistem."
+
+msgid "Latest News"
+msgstr "Berita Terbaru"
+
+msgid "Latest Articles"
+msgstr "Artikel Terbaru"
+
+msgid "Our Gallery"
+msgstr "Galeri Kami"
+
+msgid "Library Identification Number"
+msgstr "Nomor Pokok Perpustakaan"
+
+msgid "Quick Links"
+msgstr "Tautan"
+
+msgid "E-Journal Unija"
+msgstr "E-Journal Unija"
+
+msgid "Clearance Procedure"
+msgstr "Prosedur Bebas Pustaka"
+
+msgid "Thesis Submission Guide"
+msgstr "Panduan Penyerahan Skripsi"
+
+msgid "Turnitin Service"
+msgstr "Layanan Turnitin"
+
+msgid "Contact Us"
+msgstr "Hubungi Kami"
+
+msgid "UNIJA LIBRARY"
+msgstr "PERPUSTAKAAN UNIJA"
+
+msgid "Powered by"
+msgstr "Didukung oleh"
+
+msgid "Privacy"
+msgstr "Privasi"
+
+msgid "Terms"
+msgstr "Ketentuan"
+
+msgid "Help"
+msgstr "Bantuan"
+
+msgid "Privacy Policy"
+msgstr "Kebijakan Privasi"
+
+msgid "We deeply value your privacy. Here is a summary of our policy:"
+msgstr "Kami sangat menjaga kerahasiaan data Anda. Berikut adalah ringkasan kebijakan kami:"
+
+msgid "Visit Data:"
+msgstr "Data Kunjungan:"
+
+msgid "We record statistical visit data to improve library services."
+msgstr "Kami mencatat data statistik kunjungan untuk meningkatkan layanan perpustakaan."
+
+msgid "Account Data:"
+msgstr "Data Akun:"
+
+msgid "Your login data is securely encrypted and not shared with any third party."
+msgstr "Data login Anda dienkripsi secara aman dan tidak dibagikan kepada pihak ketiga manapun."
+
+msgid "Storage:"
+msgstr "Penyimpanan:"
+
+msgid "We use the latest security standards on the ZLibrary system to prevent illegal access."
+msgstr "Kami menggunakan standar keamanan terbaru pada sistem ZLibrary untuk mencegah akses ilegal."
+
+msgid "Terms & Conditions"
+msgstr "Syarat & Ketentuan"
+
+msgid "By using this website, you agree to the following rules:"
+msgstr "Dengan menggunakan website ini, Anda menyetujui aturan berikut:"
+
+msgid "This website is used solely for the academic interests of Wiraraja University."
+msgstr "Website ini digunakan semata-mata untuk kepentingan akademik Universitas Wiraraja."
+
+msgid "Any actions that damage the system (hacking, spamming, or data scraping) are prohibited."
+msgstr "Dilarang melakukan tindakan yang merusak sistem (hacking, spamming, atau scrapping data)."
+
+msgid "All content on this website is protected by copyright owned by Unija Library."
+msgstr "Seluruh konten di dalam website ini dilindungi hak cipta milik Perpustakaan Unija."
+
+msgid "Help Center"
+msgstr "Pusat Bantuan"
+
+msgid "Need technical help?"
+msgstr "Butuh bantuan teknis?"
+
+msgid "Contact our IT Support team via email:"
+msgstr "Hubungi tim IT Support kami melalui email:"
+
+msgid "Short FAQ:"
+msgstr "FAQ Singkat:"
+
+msgid "How to view the book list?"
+msgstr "Bagaimana cara melihat daftar buku?"
+
+msgid "You can go to the Online Catalog menu or use the search field on the main page."
+msgstr "Anda bisa masuk ke menu Katalog Online atau gunakan kolom pencarian di halaman utama."
+
+msgid "Who manages this website?"
+msgstr "Siapa yang mengelola website ini?"
+
+msgid "This website was developed using the ZLibrary engine for easy library administration."
+msgstr "Website ini dikembangkan menggunakan mesin ZLibrary untuk kemudahan administrasi perpustakaan."
+
+msgid "About"
+msgstr "Tentang"
+
+msgid "Developed by"
+msgstr "Dikembangkan oleh"
+
+msgid "A lightweight, simple, and powerful library web publishing CMS."
+msgstr "CMS publikasi web perpustakaan yang ringan, sederhana, dan bertenaga."
