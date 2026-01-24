@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Jangan proses jika file atau folder memang ada secara fisik
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Jalankan Routing MVC (Hapus tanda # di bawah ini)
+RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
