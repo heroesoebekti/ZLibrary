@@ -1,40 +1,49 @@
-<section class="bg-[#0f172a] text-white py-8 border-b border-white/5 font-smooth">
-        <div class="container mx-auto px-6">
-            <div id="dynamic-footer-content" class="prose-invert">
-                <?php 
-                $footerLayout = $savedFooterLayout; 
-                $allVars = get_defined_vars();
+<section class="bg-[#0f172a] text-white py-12 md:py-20 border-b border-white/5 font-smooth">
+    <div class="container mx-auto px-6">
+        <div id="dynamic-footer-content" class="prose-invert">
+            <?php 
+            $footerLayout = $savedFooterLayout; 
+            $allVars = get_defined_vars();
 
-                if (!function_exists('renderLayoutRecursive')) {
-                    function renderLayoutRecursive($items, $model, $context = []) {
-                        if (!is_array($items)) return;
+            if (!function_exists('renderLayoutFooterRecursive')) {
+                function renderLayoutFooterRecursive($items, $model, $context = []) {
+                    if (!is_array($items) || empty($items)) return;
 
-                        foreach ($items as $item) {
-                            if (isset($item['type']) && $item['type'] === 'block') {
-                                $lt = $item['layout'] ?? 'full';
-                                echo '<div class="grid grid-cols-12 gap-8 lg:gap-12 mb-10">';
+                    foreach ($items as $item) {
+                        if (isset($item['type']) && $item['type'] === 'block') {
+                            $lt = $item['layout'] ?? 'full';
+                            echo '<div class="grid grid-cols-1 md:grid-cols-12 gap-y-10 md:gap-x-12 mb-12">';
 
-                                if (isset($item['columns']) && is_array($item['columns'])) {
-                                    foreach ($item['columns'] as $pos => $children) {
-                                        $span = 'col-span-12';
-                                        if ($lt === '2-col') { $span = 'md:col-span-6'; } 
-                                        elseif ($lt === '3-col') { $span = 'md:col-span-4'; } 
-                                        elseif ($lt === '4-col') { $span = 'md:col-span-6 lg:col-span-3'; } 
-                                        elseif ($lt === '1-2-col') { $span = ($pos === 'c1') ? 'lg:col-span-4' : 'lg:col-span-8'; } 
-                                        elseif ($lt === '2-1-col') { $span = ($pos === 'c1') ? 'lg:col-span-8' : 'lg:col-span-4'; }
-
-                                        echo '<div class="' . $span . ' flex flex-col gap-6">';
-                                        renderLayoutRecursive($children, $model, $context);
-                                        echo '</div>';
+                            if (isset($item['columns']) && is_array($item['columns'])) {
+                                foreach ($item['columns'] as $pos => $children) {
+                                    $span = 'md:col-span-12'; 
+                                    if ($lt === '2-col') { 
+                                        $span = 'md:col-span-6'; 
+                                    } elseif ($lt === '3-col') { 
+                                        $span = 'md:col-span-4'; 
+                                    } elseif ($lt === '4-col') { 
+                                        $span = 'md:col-span-6 lg:col-span-3'; 
+                                    } elseif ($lt === '1-2-col') { 
+                                        $span = ($pos === 'c1') ? 'md:col-span-4' : 'md:col-span-8'; 
+                                    } elseif ($lt === '2-1-col') { 
+                                        $span = ($pos === 'c1') ? 'md:col-span-8' : 'md:col-span-4'; 
                                     }
-                                }
-                                echo '</div>';
 
-                            } elseif (isset($item['type']) && $item['type'] === 'widget') {
-                                $widget_info = $model->getWidgetContent((int)$item['id'], $item['is_instance'] ?? false);
+                                    echo '<div class="' . $span . ' flex flex-col gap-6">';
+                                    renderLayoutFooterRecursive($children, $model, $context);
+                                    echo '</div>';
+                                }
+                            }
+                            echo '</div>';
+                        } elseif (isset($item['type']) && $item['type'] === 'widget') {
+                            if (isset($model)) {
+                                $is_inst = (isset($item['is_instance']) && ($item['is_instance'] === 'true' || $item['is_instance'] === true || $item['is_instance'] == 1));
+                                $widget_info = $model->getWidgetContent((int)$item['id'], $is_inst);
+
                                 if ($widget_info) {
                                     $w_type = $item['widget_type'] ?? 'custom_widget'; 
                                     $file = BASE_PATH . "/widgets/" . $w_type . ".php";
+                                    
                                     echo '<div class="widget-item w-full">';
                                     if (file_exists($file)) {
                                         extract($context, EXTR_SKIP);
@@ -42,9 +51,10 @@
                                         include $file; 
                                     } else {
                                         if (($widget_info['show_title'] ?? '1') == '1') {
-                                            echo '<h4 class="text-lg font-bold mb-3">' . htmlspecialchars($widget_info['title']) . '</h4>';
+                                            echo '<h4 class="text-sm font-black text-blue-400 uppercase tracking-[0.2em] mb-4 flex items-center gap-2">';
+                                            echo '<span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>' . htmlspecialchars($widget_info['title']) . '</h4>';
                                         }
-                                        echo $widget_info['content'];
+                                        echo '<div class="text-slate-400 text-sm leading-relaxed">' . $widget_info['content'] . '</div>';
                                     }
                                     echo '</div>';
                                 }
@@ -52,41 +62,40 @@
                         }
                     }
                 }
+            }
 
-                if (is_array($footerLayout) && !empty($footerLayout)) {
-                    renderLayoutRecursive($footerLayout, $widgetModel, $allVars);
-                }
-                ?>
+            if (is_array($footerLayout) && !empty($footerLayout)) {
+                renderLayoutFooterRecursive($footerLayout, $widgetModel, $allVars);
+            }
+            ?>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-[#0b1120] py-8 border-t border-white/[0.02]">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-[11px] font-medium">
+                <span class="text-slate-500 text-center">
+                    &copy; <?= date('Y') ?> <span class="text-slate-300 font-bold"><?= SITE_TITLE .' '.SITE_SUBTITLE ?></span>
+                </span>
+                <span class="hidden md:block w-px h-3 bg-slate-800"></span>
+                <span class="text-slate-500 italic">
+                    <?= __('Powered by') ?> 
+                    <span onclick="openLegal('tagline')" class="text-blue-500/80 font-bold not-italic cursor-pointer hover:text-blue-400"> 
+                        ZLibrary CMS
+                    </span>
+                </span>
+            </div>
+
+            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-3">
+                <button onclick="openLegal('privasi')" class="text-[10px] font-bold text-slate-500 hover:text-yellow-500 uppercase tracking-widest transition-colors"><?= __('Privacy') ?></button>
+                <button onclick="openLegal('ketentuan')" class="text-[10px] font-bold text-slate-500 hover:text-yellow-500 uppercase tracking-widest transition-colors"><?= __('Terms') ?></button>
+                <button onclick="openLegal('bantuan')" class="text-[10px] font-bold text-slate-500 hover:text-yellow-500 uppercase tracking-widest transition-colors"><?= __('Help') ?></button>
             </div>
         </div>
-    </section>
-
-    <footer class="bg-[#0b1120] py-4 border-t border-white/[0.02]">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="flex items-center gap-4 text-[10px] font-medium tracking-tight">
-                    <span class="text-slate-600">
-                        &copy; <?= date('Y') ?> <span class="text-slate-400 font-bold"><?= SITE_TITLE .' '.SITE_SUBTITLE ?></span>
-                    </span>
-                    <span class="w-px h-3 bg-slate-800"></span>
-                    <span class="text-slate-600 italic">
-                        <?= __('Powered by') ?> 
-                        <span onclick="openLegal('tagline')" class="text-blue-500/80 font-bold not-italic cursor-pointer hover:text-blue-400 transition-colors"> 
-                            ZLibrary CMS
-                        </span>
-                    </span>
-                </div>
-
-                <div class="order-1 md:order-2 flex flex-wrap justify-center items-center gap-x-8 gap-y-3">
-                    <button onclick="openLegal('privasi')" class="text-[10px] font-bold text-slate-600 hover:text-yellow-500 uppercase tracking-widest transition-colors"><?= __('Privacy') ?></button>
-                    <span class="hidden md:block w-px h-3 bg-slate-800"></span>
-                    <button onclick="openLegal('ketentuan')" class="text-[10px] font-bold text-slate-600 hover:text-yellow-500 uppercase tracking-widest transition-colors"><?= __('Terms') ?></button>
-                    <span class="hidden md:block w-px h-3 bg-slate-800"></span>
-                    <button onclick="openLegal('bantuan')" class="text-[10px] font-bold text-slate-600 hover:text-yellow-500 uppercase tracking-widest transition-colors"><?= __('Help') ?></button>
-                </div>
-            </div>
-        </div>
-    </footer>
+    </div>
+</footer>
 
     <div id="modal-legal" class="fixed inset-0 hidden items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4 transition-all duration-300" style="z-index: 99999 !important;">
         <div id="modal-content" class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden transform transition-all duration-300 scale-95 opacity-0">
