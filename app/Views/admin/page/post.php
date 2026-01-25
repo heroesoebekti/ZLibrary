@@ -111,7 +111,7 @@
     <?php if(($total_hal ?? 0) > 1): ?>
     <div class="mt-8 flex justify-center items-center gap-2">
         <?php for($i=1; $i<=$total_hal; $i++): ?>
-            <a href="?halaman=<?= $i ?>&search=<?= urlencode($search) ?>&filter_cat=<?= $filter_cat ?>" class="w-10 h-10 flex items-center justify-center rounded-xl font-bold transition-all <?= $halaman == $i ? 'bg-indigo-600 text-white shadow-lg' : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50' ?>">
+            <a href="?halaman=<?= $i ?>&search=<?= urlencode($search ?? '') ?>&filter_cat=<?= urlencode($filter_cat ?? '') ?>" class="w-10 h-10 flex items-center justify-center rounded-xl font-bold transition-all <?= $halaman == $i ? 'bg-indigo-600 text-white shadow-lg' : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50' ?>">
                 <?= $i ?>
             </a>
         <?php endfor; ?>

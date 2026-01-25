@@ -24,16 +24,16 @@ class PostController extends Controller {
         $halaman = (int)$this->input('halaman', 1);
         $offset = ($halaman - 1) * $limit;
         
-        $search = $this->input('search');
-        $filter_cat = $this->input('filter_cat');
+        $search = $this->input('search') ?? '';
+        $filter_cat = $this->input('filter_cat') ?? '';
         
         $cond = " WHERE 1=1 ";
 
-        if ($search) {
+        if ($search !== '') {
             $escaped_search = $this->db->quote('%' . $search . '%');
             $cond .= " AND judul LIKE " . $escaped_search;
         }
-        if ($filter_cat) {
+        if ($filter_cat !== '') {
             $escaped_cat = $this->db->quote($filter_cat);
             $cond .= " AND kategori = " . $escaped_cat;
         }
@@ -155,6 +155,31 @@ class PostController extends Controller {
             }
             $this->model->delete($id);
             ToaStr::set('error', __("Post deleted permanently"));
+        }
+        header("Location: " . BASE_URL . "/admin/post");
+        exit;
+    }
+
+    public function bulkdelete() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ids'])) {
+            $ids = $_POST['ids'];
+            foreach ($ids as $id) {
+                $post = $this->model->find((int)$id);
+                if ($post) {
+                    if (!empty($post['gambar'])) {
+                        ImageConvert::delete($this->target_dir . $post['gambar']);
+                    }
+                    preg_match_all('/src="([^"]+)"/', $post['isi'], $matches);
+                    foreach ($matches[1] as $imgUrl) {
+                        if (strpos($imgUrl, $this->target_dir) !== false) {
+                            ImageConvert::delete($this->target_dir . basename($imgUrl));
+                        }
+                    }
+                }
+            }
+            if ($this->model->bulkDelete($ids)) {
+                ToaStr::set('success', count($ids) . " " . __("posts deleted successfully"));
+            }
         }
         header("Location: " . BASE_URL . "/admin/post");
         exit;
