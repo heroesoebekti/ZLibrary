@@ -96,8 +96,11 @@ if (!function_exists('renderLayoutRecursive')) {
     </div>
     <div class="container mx-auto px-6 md:px-12 relative z-10">
         <div class="max-w-4xl">
-            <h1 class="text-4xl md:text-7xl font-extrabold text-white mb-6 leading-tight tracking-tight">
-                <?= defined('SITE_TAGLINE_MAIN') ? SITE_TAGLINE_MAIN : 'Welcome' ?>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-[1.1] tracking-tight">
+                <?= defined('SITE_TAGLINE_MAIN') ? SITE_TAGLINE_MAIN : __('Welcome') ?> <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">
+                    <?= defined('SITE_TAGLINE_SUBMAIN') ? SITE_TAGLINE_SUBMAIN : '' ?>
+                </span>
             </h1>
             <p class="text-lg md:text-xl text-slate-300 max-w-2xl font-light">
                 <?= defined('SITE_DESCRIPTION') ? SITE_DESCRIPTION : '' ?>
