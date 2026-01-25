@@ -1,21 +1,23 @@
 <nav class="bg-blue-800 text-white shadow-lg sticky top-0 z-50">
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-center h-20">
-            
-            <a href="<?= BASE_URL ?>" class="flex items-center gap-3 flex-shrink-0 z-50">
-                <div class="w-10 h-10 bg-white rounded-lg p-1 flex items-center justify-center text-blue-800 font-bold text-xl shadow-inner">
+            <a href="<?= BASE_URL ?>" class="flex items-center gap-3 flex-shrink-0 z-50 max-w-[70%] sm:max-w-none">
+                <div class="w-10 h-10 bg-white rounded-lg p-1 flex-shrink-0 flex items-center justify-center text-blue-800 font-bold text-xl shadow-inner">
                     <?= substr(SITE_TITLE, 0, 1) ?>
                 </div>
-                <div class="flex flex-col">
-                    <span class="text-[10px] font-bold text-blue-200 leading-none uppercase tracking-wider"><?= SITE_TITLE ?></span>
+                <div class="flex flex-col min-w-0">
+                    <span class="font-bold text-blue-200 leading-none uppercase tracking-wider truncate"
+                          style="font-size: clamp(8px, 2vw, 10px);">
+                        <?= SITE_TITLE ?>
+                    </span>                
                     <?php $subtitle = explode(" ", SITE_SUBTITLE); ?>
-                    <h2 class="text-lg font-black text-white leading-none uppercase">
+                    <h2 class="font-black text-white leading-[0.9] uppercase"
+                        style="font-size: clamp(14px, 4vw, 20px);">
                         <?= array_shift($subtitle) ?> 
                         <span class="text-yellow-400"><?= implode(" ", $subtitle); ?></span>
                     </h2>
                 </div>
             </a>
-
             <div class="flex items-center space-x-4 justify-end flex-1">
                 <ul class="hidden lg:flex items-center space-x-1">
                     <?php 
