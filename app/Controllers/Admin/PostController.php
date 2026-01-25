@@ -114,6 +114,33 @@ class PostController extends Controller {
         }
     }
 
+    public function uploadImageEditor() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['upload'])) {
+            $file = $_FILES['upload'];
+            $allowed_types = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+            $fileType = mime_content_type($file['tmp_name']);
+            
+            if (!in_array($fileType, $allowed_types)) {
+                echo json_encode(['uploaded' => false, 'error' => ['message' => 'Invalid image format']]);
+                exit;
+            }
+            $upload = ImageConvert::process($file, $this->target_dir, 70, 'editor_');
+
+            if ($upload && $upload !== 'ERR_PERMISSION') {
+                echo json_encode([
+                    'uploaded' => true,
+                    'url' => BASE_URL . '/' . $this->target_dir . $upload
+                ]);
+            } else {
+                echo json_encode([
+                    'uploaded' => false, 
+                    'error' => ['message' => 'Failed to move uploaded file. Check folder permissions.']
+                ]);
+            }
+            exit;
+        }
+    }
+    
     public function delete($id) {
         $post = $this->model->find((int)$id);
         if ($post) {
