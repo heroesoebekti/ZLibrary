@@ -16,7 +16,9 @@ if (!function_exists('renderLayoutRecursive')) {
                     case '3-col':   $gridCols = 'grid-cols-1 md:grid-cols-3'; break;
                     case '4-col':   $gridCols = 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4'; break;
                     case '1-2-col': 
-                    case '2-1-col': $gridCols = 'grid-cols-12'; break;
+                    case '2-1-col': 
+                    case '3-1-col': 
+                    case '1-3-col': $gridCols = 'grid-cols-12'; break;
                     default:        $gridCols = 'grid-cols-1'; break;
                 }
 
@@ -27,9 +29,13 @@ if (!function_exists('renderLayoutRecursive')) {
                     foreach ($item['columns'] as $pos => $children) {
                         $span = 'col-span-12';
                         if ($lt === '1-2-col') {
-                            $span = ($pos === 'c1') ? 'lg:col-span-3' : 'lg:col-span-9';
+                            $span = ($pos === 'c1') ? 'lg:col-span-4' : 'lg:col-span-8';
                         } elseif ($lt === '2-1-col') {
+                            $span = ($pos === 'c1') ? 'lg:col-span-8' : 'lg:col-span-4';
+                        } elseif ($lt === '3-1-col') {
                             $span = ($pos === 'c1') ? 'lg:col-span-9' : 'lg:col-span-3';
+                        } elseif ($lt === '1-3-col') {
+                            $span = ($pos === 'c1') ? 'lg:col-span-3' : 'lg:col-span-9';
                         } elseif ($lt === 'full') {
                             $span = 'col-span-12';
                         } else {

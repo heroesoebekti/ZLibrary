@@ -81,6 +81,21 @@
                 </div>
                 <span class="text-[10px] font-bold text-slate-600 uppercase"><?= _("4 Columns (Equal)") ?></span>
             </button>
+            <button onclick="addNewRow('3-1-col')" class="group p-4 border border-slate-200 rounded hover:border-indigo-500 transition-all text-left">
+    <div class="grid grid-cols-4 gap-1 mb-2">
+        <div class="col-span-3 h-8 bg-slate-100 rounded border border-slate-200 group-hover:bg-indigo-50"></div>
+        <div class="col-span-1 h-8 bg-slate-100 rounded border border-slate-200 group-hover:bg-indigo-50"></div>
+    </div>
+    <span class="text-[10px] font-bold text-slate-600 uppercase"><?= _("Main - Sidebar (3:1)") ?></span>
+</button>
+
+<button onclick="addNewRow('1-3-col')" class="group p-4 border border-slate-200 rounded hover:border-indigo-500 transition-all text-left">
+    <div class="grid grid-cols-4 gap-1 mb-2">
+        <div class="col-span-1 h-8 bg-slate-100 rounded border border-slate-200 group-hover:bg-indigo-50"></div>
+        <div class="col-span-3 h-8 bg-slate-100 rounded border border-slate-200 group-hover:bg-indigo-50"></div>
+    </div>
+    <span class="text-[10px] font-bold text-slate-600 uppercase"><?= _("Sidebar - Main (1:3)") ?></span>
+</button>
         </div>
     </div>
 </div>
@@ -425,7 +440,8 @@ function createBlockHTML(data) {
     else if(data.layout === '2-1-col') grid = `<div class="grid grid-cols-3 gap-2"><div data-pos="c1" class="col-span-2 ${colBase}">${renderRecursive(data.columns?.c1)}</div><div data-pos="c2" class="col-span-1 ${colBase}">${renderRecursive(data.columns?.c2)}</div></div>`;
     else if(data.layout === '3-col') grid = `<div class="grid grid-cols-3 gap-2"><div data-pos="c1" class="${colBase}">${renderRecursive(data.columns?.c1)}</div><div data-pos="c2" class="${colBase}">${renderRecursive(data.columns?.c2)}</div><div data-pos="c3" class="${colBase}">${renderRecursive(data.columns?.c3)}</div></div>`;
     else if(data.layout === '4-col') grid = `<div class="grid grid-cols-4 gap-2"><div data-pos="c1" class="${colBase}">${renderRecursive(data.columns?.c1)}</div><div data-pos="c2" class="${colBase}">${renderRecursive(data.columns?.c2)}</div><div data-pos="c3" class="${colBase}">${renderRecursive(data.columns?.c3)}</div><div data-pos="c4" class="${colBase}">${renderRecursive(data.columns?.c4)}</div></div>`;
-    
+    else if(data.layout === '3-1-col') grid = `<div class="grid grid-cols-4 gap-2"><div data-pos="c1" class="col-span-3 ${colBase}">${renderRecursive(data.columns?.c1)}</div><div data-pos="c2" class="col-span-1 ${colBase}">${renderRecursive(data.columns?.c2)}</div></div>`;
+    else if(data.layout === '1-3-col') grid = `<div class="grid grid-cols-4 gap-2"><div data-pos="c1" class="col-span-1 ${colBase}">${renderRecursive(data.columns?.c1)}</div><div data-pos="c2" class="col-span-3 ${colBase}">${renderRecursive(data.columns?.c2)}</div></div>`;
     return `<div class="row-container bg-white rounded border border-slate-200 overflow-hidden shadow-sm mb-4" data-id="${data.id}" data-layout="${data.layout}">
         <div class="px-3 py-1.5 bg-slate-50 flex justify-between items-center border-b border-slate-200 drag-handle cursor-move">
             <span class="text-[9px] font-black text-slate-400 uppercase tracking-wider">${data.layout.replace('-',' ')}</span>
