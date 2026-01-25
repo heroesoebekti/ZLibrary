@@ -91,5 +91,43 @@
         </div>
     </header>
 
+    <?php
+    $checks = [
+        'assets/img' => 'Gallery Storage',
+        'assets/cache/widgets' => 'Widget Cache'
+    ];
+    $activeErrors = [];
+    foreach ($checks as $path => $label) {
+        if (!is_dir($path)) {
+            $activeErrors[] = "<strong>$label:</strong> Folder tidak ditemukan ($path)";
+        } elseif (!is_writable($path)) {
+            $activeErrors[] = "<strong>$label:</strong> Folder tidak bisa ditulisi/read-only ($path)";
+        }
+    }
+    ?>
+
+    <?php if (!empty($activeErrors)): ?>
+    <div class="bg-rose-50 border-b border-rose-100 px-10 py-4 flex items-center gap-4 animate-in fade-in slide-in-from-top duration-300">
+        <div class="w-10 h-10 bg-rose-500 rounded-xl flex items-center justify-center shadow-lg shadow-rose-100 text-white flex-shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+            </svg>
+        </div>
+        <div class="flex-1">
+            <h4 class="text-[10px] font-black text-rose-800 uppercase tracking-widest mb-1"><?= __('Directory Permission Alert') ?></h4>
+            <div class="flex gap-x-6 gap-y-1 flex-wrap">
+                <?php foreach ($activeErrors as $error): ?>
+                <p class="text-[11px] text-rose-600 font-medium flex items-center gap-2">
+                    <span class="w-1 h-1 bg-rose-400 rounded-full"></span> <?= $error ?>
+                </p>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <button onclick="this.parentElement.remove()" class="p-2 text-rose-300 hover:text-rose-600 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+    </div>
+    <?php endif; ?>
+
     <main class="flex-1 overflow-y-auto p-10">
         <div class="max-w-6xl mx-auto">

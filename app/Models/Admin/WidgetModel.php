@@ -7,14 +7,27 @@ class WidgetModel {
     private $db;
     private $cache_path;
     private $cache_enabled = true;
+    private $error_message = null;
 
     public function __construct($db) {
         $this->db = $db;
         $this->cache_path = "assets/cache/widgets/";
         
-        if ($this->cache_enabled && !is_dir($this->cache_path)) {
-            mkdir($this->cache_path, 0777, true);
+        if ($this->cache_enabled) {
+            if (!is_dir($this->cache_path)) {
+                if (!@mkdir($this->cache_path, 0777, true)) {
+                    $this->error_message = __("Cache directory could not be created. Please check permissions in assets/cache/");
+                }
+            } 
+
+            if (is_dir($this->cache_path) && !is_writable($this->cache_path)) {
+                $this->error_message = __("Cache directory is not writable. Please CHMOD 775/777: ") . $this->cache_path;
+            }
         }
+    }
+
+    public function getErrorMessage() {
+        return $this->error_message;
     }
 
     public function getWidgetContent($id, $isInstance = false) {

@@ -33,7 +33,8 @@ class WidgetController extends Controller {
             'current_page'      => 'widget',
             'library'           => $all,
             'savedLayout'       => $this->model->getSavedLayout('homepage_layout'),
-            'savedFooterLayout' => $this->model->getSavedLayout('footer_layout')
+            'savedFooterLayout' => $this->model->getSavedLayout('footer_layout'),
+            'error_message'     => $this->model->getErrorMessage()
         ];
         
         $this->view('widgets_manager', $data, 'admin');
