@@ -8,6 +8,8 @@ class Router {
     protected $namespace  = 'App\\Controllers\\Public\\';
 
     public function __construct() {
+        ini_set('display_errors', 0);
+        
         $this->csrfMiddleware();
         $url = $this->parseUrl();
 
@@ -22,7 +24,6 @@ class Router {
                 unset($url[1]);
             }
         } else {
-
             $map = [
                 'halaman'  => 'PageController', 
                 'arsip'    => 'PostController', 
@@ -44,6 +45,7 @@ class Router {
         }
 
         $className = $this->namespace . $this->controller;
+        
         if (!class_exists($className) || !str_starts_with($className, 'App\\Controllers\\')) {
             $this->error404();
         }
@@ -57,22 +59,34 @@ class Router {
             if (method_exists($this->controller, $cleanMethod) && is_callable([$this->controller, $cleanMethod])) {
                 $this->method = $cleanMethod;
                 unset($url[0]);
+            } else {
+                $this->error404();
             }
         }
 
+        if (!is_callable([$this->controller, $this->method])) {
+            $this->error404();
+        }
+
         $this->params = $url ? array_values($url) : [];
-        call_user_func_array([$this->controller, $this->method], $this->params);
+        
+        try {
+            call_user_func_array([$this->controller, $this->method], $this->params);
+        } catch (\Throwable $e) {
+            error_log($e->getMessage());
+            $this->error404();
+        }
     }
 
     private function csrfMiddleware() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $token = $_POST['csrf_token'] ?? '';
             if (session_status() === PHP_SESSION_NONE) session_start();
+            $token = $_POST['csrf_token'] ?? '';
             $valid = isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $token);
             
             if (!$valid) {
                 http_response_code(403);
-                die("<h1>403 Forbidden</h1><p>CSRF Token invalid.</p>");
+                die("<h1>403 Forbidden</h1>");
             }
         }
     }
@@ -86,10 +100,13 @@ class Router {
     }
 
     private function error404() {
-        http_response_code(404);
-        $errorPage = '../app/views/errors/404.php'; 
-        if (file_exists($errorPage)) require_once $errorPage;
-        else echo "<h1>404 Not Found</h1>";
+        if (!headers_sent()) http_response_code(404);
+        $errorPage = __DIR__ . '/../../app/views/errors/404.php'; 
+        if (file_exists($errorPage)) {
+            require_once $errorPage;
+        } else {
+            echo "<h1>404 Not Found</h1>";
+        }
         exit;
     }
 }
