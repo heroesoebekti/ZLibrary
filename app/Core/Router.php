@@ -51,7 +51,6 @@ class Router {
         }
         
         $this->controller = new $className;
-
         $url = array_values($url); 
         
         if (isset($url[0])) {
@@ -59,17 +58,15 @@ class Router {
             if (method_exists($this->controller, $cleanMethod) && is_callable([$this->controller, $cleanMethod])) {
                 $this->method = $cleanMethod;
                 unset($url[0]);
-            } else {
-                $this->error404();
             }
-        }
-
-        if (!is_callable([$this->controller, $this->method])) {
-            $this->error404();
         }
 
         $this->params = $url ? array_values($url) : [];
         
+        if (!method_exists($this->controller, $this->method)) {
+            $this->error404();
+        }
+
         try {
             call_user_func_array([$this->controller, $this->method], $this->params);
         } catch (\Throwable $e) {
