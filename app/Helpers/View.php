@@ -7,7 +7,7 @@ class View {
         extract($data, EXTR_SKIP);
 
         if ($layoutName === 'admin') {
-            $basePath = dirname(__DIR__, 2) . "/app/views/admin/";
+            $basePath = dirname(__DIR__, 2) . "/app/Views/admin/";
         } else {
             $theme = preg_replace('/[^a-zA-Z0-9_-]/', '', $data['sets']['active_theme'] ?? 'default');
             $basePath = dirname(__DIR__, 2) . "/public/themes/{$theme}/";
