@@ -1,3 +1,16 @@
+<?php 
+$theme_path = BASE_PATH . '/themes';
+$available_themes = [];
+if (is_dir($theme_path)) {
+    $dir_contents = scandir($theme_path);
+    foreach ($dir_contents as $file) {
+        if ($file !== '.' && $file !== '..' && is_dir($theme_path . '/' . $file)) {
+            $available_themes[] = $file;
+        }
+    }
+} 
+?>
+
 <div class="w-full mx-auto p-4 md:p-0">
     <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
         <div>
@@ -83,7 +96,42 @@
                                         </div>
                                     </div>
 
-                                <?php else: ?>
+                                <?php elseif($s['setting_name'] === 'default_language'): ?>
+                                    <div class="relative">
+                                        <select name="sets[<?= $s['setting_name'] ?>]" class="w-full appearance-none px-5 py-4 rounded-custom bg-slate-50 border border-slate-200 focus:bg-white focus:ring-4 focus:ring-indigo-500/5 focus:border-indigo-500 outline-none text-sm font-black text-slate-700 uppercase tracking-wider cursor-pointer transition-all">
+                                            <option value="id_ID" <?= $s['setting_value'] == 'id_ID' ? 'selected' : '' ?>>Bahasa Indonesia</option>
+                                            <option value="en_US" <?= $s['setting_value'] == 'en_US' ? 'selected' : '' ?>>English (US)</option>
+                                        </select>
+                                        <div class="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="3" d="M19 9l-7 7-7-7"/></svg>
+                                        </div>
+                                    </div>
+                                <?php elseif($s['setting_name'] === 'active_theme'): ?>
+                                <div class="relative">
+                                    <select name="sets[<?= $s['setting_name'] ?>]" 
+                                            class="w-full appearance-none px-5 py-4 rounded-custom bg-slate-50 border border-slate-200 focus:bg-white focus:ring-4 focus:ring-indigo-500/5 focus:border-indigo-500 outline-none text-sm font-black text-slate-700 uppercase tracking-wider cursor-pointer transition-all">
+                                        
+                                        <?php 
+                                        print_r($available_themes);
+                                         if (!empty($available_themes)): ?>
+                                            <?php foreach ($available_themes as $theme_name): ?>
+                                                <option value="<?= $theme_name ?>" <?= $s['setting_value'] == $theme_name ? 'selected' : '' ?>>
+                                                    <?= str_replace(['_', '-'], ' ', $theme_name) ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        <?php else: ?>
+                                            <option value="default">Default Theme</option>
+                                        <?php endif; ?>
+
+                                    </select>
+                                    <div class="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"/>
+                                        </svg>
+                                    </div>
+                                </div>
+
+                              <?php else: ?>
                                     <input type="<?= $s['setting_type'] ?>" name="sets[<?= $s['setting_name'] ?>]" value="<?= $s['setting_value'] ?>" 
                                            class="w-full px-5 py-4 rounded-custom bg-slate-50 border border-slate-200 focus:bg-white focus:ring-4 focus:ring-indigo-500/5 focus:border-indigo-500 outline-none transition-all text-sm font-bold text-slate-700">
                                 <?php endif; ?>
