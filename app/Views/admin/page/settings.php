@@ -1,4 +1,5 @@
 <?php 
+defined('INDEX_AUTH') or exit('Direct access denied.');
 $theme_path = BASE_PATH . '/themes';
 $available_themes = [];
 if (is_dir($theme_path)) {

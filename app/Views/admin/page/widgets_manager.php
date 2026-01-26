@@ -1,5 +1,5 @@
+<?php defined('INDEX_AUTH') or exit('Direct access denied.'); ?>
 <meta name="csrf-token" content="<?= $_SESSION['csrf_token'] ?>">
-
 <style>
     #main-builder, #widget-library-container { font-family: 'Inter', sans-serif; }
     .row-container { margin-bottom: 1rem; }

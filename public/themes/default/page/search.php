@@ -1,3 +1,4 @@
+<?php defined('INDEX_AUTH') or exit('Direct access denied.'); ?>
 <section class="relative bg-slate-900 py-16 overflow-hidden">
     <div class="absolute top-0 right-0 -translate-y-12 translate-x-12 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
     

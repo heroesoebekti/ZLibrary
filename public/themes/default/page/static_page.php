@@ -1,3 +1,4 @@
+<?php defined('INDEX_AUTH') or exit('Direct access denied.'); ?>
 <nav class="container mx-auto px-6 pt-10">
     <ol class="flex items-center space-x-2 text-sm text-slate-400 font-medium">
         <li><a href="<?= BASE_URL ?>" class="hover:text-blue-600 transition"><?= __('Home') ?></a></li>

@@ -1,3 +1,4 @@
+<?php defined('INDEX_AUTH') or exit('Direct access denied.'); ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>

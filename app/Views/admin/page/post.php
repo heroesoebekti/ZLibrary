@@ -1,3 +1,4 @@
+<?php defined('INDEX_AUTH') or exit('Direct access denied.'); ?>
 <div class="w-full mx-auto">
     <div class="flex justify-between items-start mb-10">
         <div>

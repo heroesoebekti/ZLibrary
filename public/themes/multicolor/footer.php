@@ -1,3 +1,4 @@
+<?php defined('INDEX_AUTH') or exit('Direct access denied.'); ?>
 <section class="dynamic-bg text-white py-12 md:py-20 border-b border-white/5 font-smooth">
     <div class="container mx-auto px-6">
         <div id="dynamic-footer-content" class="prose-invert">

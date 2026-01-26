@@ -1,4 +1,6 @@
-<?php $current_page = $current_page ?? 'dashboard'; ?>
+<?php 
+defined('INDEX_AUTH') or exit('Direct access denied.');
+$current_page = $current_page ?? 'dashboard'; ?>
 <aside class="w-72 flex-shrink-0 border-r border-slate-200">
     <div class="h-full flex flex-col p-6 bg-white">
         <div class="mb-10 px-2 flex items-center gap-3">

@@ -1,4 +1,4 @@
-
+<?php defined('INDEX_AUTH') or exit('Direct access denied.'); ?>
 <nav class="dynamic-bg dynamic-text shadow-lg sticky top-0 z-50">
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-center h-20">

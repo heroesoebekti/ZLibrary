@@ -1,4 +1,4 @@
-<?php
+<?php defined('INDEX_AUTH') or exit('Direct access denied.'); 
 $layoutBlocks = (isset($savedLayout) && is_array($savedLayout)) ? $savedLayout : [];
 $allVars = get_defined_vars();
 

@@ -1,3 +1,4 @@
+<?php defined('INDEX_AUTH') or exit('Direct access denied.'); ?>
 <main class="container mx-auto px-4 py-12">
     <div class="max-w-5xl mx-auto">
         

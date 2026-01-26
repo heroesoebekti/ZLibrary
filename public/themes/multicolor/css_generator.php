@@ -1,4 +1,5 @@
-<?php
+<?php 
+defined('INDEX_AUTH') or exit('Direct access denied.');
 $palettes = [
 
     'slate_pro'   => ['bg' => '#0f172a', 'accent' => '#38bdf8', 'hover' => '#1e293b', 'dark' => '#020617', 'text' => '#ffffff', 'muted' => '#94a3b8'],
