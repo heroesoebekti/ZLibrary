@@ -8,7 +8,7 @@
     <link href="<?= BASE_URL ?>/assets/dist/output.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/fonts.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css">
-    <link rel="icon" type="image/png" sizes="16x16"  href="<?= BASE_URL ?>/assets/img/default/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16"  href="<?= BASE_URL ?>/assets/img/default/<?= SITE_ICON ?>">
     <meta name="author" content="<?= htmlspecialchars_decode($post['author'] ?? SITE_TITLE.' '.SITE_SUBTITLE ) ?>">
 </head>
 <body class="bg-slate-50 text-slate-900">

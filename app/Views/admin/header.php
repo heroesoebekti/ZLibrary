@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/js/toastr/toastr.min.css">
     <script src="<?= BASE_URL ?>/assets/js/toastr/toastr.min.js"></script>
     <script src="<?= BASE_URL ?>/assets/js/Sortable.min.js"></script>
-    <link rel="icon" type="image/png" sizes="16x16"  href="<?= BASE_URL ?>/assets/img/default/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16"  href="<?= BASE_URL ?>/assets/img/default/<?= SITE_ICON ?>">
     <style>
         .sharp-radius { border-radius: 4px; }
         .input-flat { border: 1px solid #e2e8f0; background: #fcfcfc; transition: 0.2s; }
