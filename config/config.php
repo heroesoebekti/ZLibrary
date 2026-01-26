@@ -1,5 +1,5 @@
 <?php
-
+define('INDEX_AUTH', true);
 define('BASE_URL', 'http://localhost/zlib');
 
 define('DB_HOST', 'localhost');
