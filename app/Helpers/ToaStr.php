@@ -1,9 +1,11 @@
 <?php
 namespace App\Helpers;
 
+use App\Helpers\Security;
+
 class ToaStr {
     public static function set($type, $message) {
-        if (session_status() === PHP_SESSION_NONE) session_start();
+        Security::secureSession();
         $_SESSION['toastr_msg'] = [
             'type'    => $type,
             'message' => $message
@@ -11,7 +13,7 @@ class ToaStr {
     }
 
     public static function display() {
-        if (session_status() === PHP_SESSION_NONE) session_start();
+        Security::secureSession();
         
         if (isset($_SESSION['toastr_msg'])) {
             $type    = $_SESSION['toastr_msg']['type'];

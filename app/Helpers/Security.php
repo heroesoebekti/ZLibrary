@@ -2,11 +2,14 @@
 namespace App\Helpers;
 
 class Security {
+    
     public static function secureSession() {
         if (session_status() === PHP_SESSION_NONE) {
             if (!headers_sent()) {
                 header_remove("X-Powered-By");
             }
+
+            session_name('__Secure-PHPSESSID');
 
             session_set_cookie_params([
                 'lifetime' => 0,
@@ -24,12 +27,26 @@ class Security {
             session_regenerate_id(true);
             $_SESSION['initialized'] = true;
             $_SESSION['user_agent'] = $_SERVER['HTTP_USER_AGENT'] ?? '';
+            $_SESSION['remote_ip'] = $_SERVER['REMOTE_ADDR'] ?? '';
         }
 
         if (($_SESSION['user_agent'] ?? '') !== ($_SERVER['HTTP_USER_AGENT'] ?? '')) {
-            session_destroy();
-            die("Security Error.");
+            self::destroyAndExit();
         }
+    }
+
+    private static function destroyAndExit() {
+        session_unset();
+        session_destroy();
+        if (ini_get("session.use_cookies")) {
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000,
+                $params["path"], $params["domain"],
+                $params["secure"], $params["httponly"]
+            );
+        }
+        http_response_code(403);
+        die("Security Error.");
     }
 
     public static function input($name = null, $default = null) {
@@ -70,11 +87,6 @@ class Security {
     }
 
     public static function setHeaders() {
-        if (empty($_SESSION['csp_nonce'])) {
-            $_SESSION['csp_nonce'] = bin2hex(random_bytes(16));
-        }
-        $nonce = $_SESSION['csp_nonce'];
-
         header("Strict-Transport-Security: max-age=31536000; includeSubDomains; preload");
         
         $csp = "default-src 'self'; ";

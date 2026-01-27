@@ -7,9 +7,6 @@ class LogoutController extends Controller {
     
     public function __construct() {
         parent::__construct();
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
     }
 
     public function index() {
@@ -26,7 +23,9 @@ class LogoutController extends Controller {
                 $params["httponly"]
             );
         }
+
         session_destroy();
+
         header("Location: " . BASE_URL . "/auth");
         exit;
     }

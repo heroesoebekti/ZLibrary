@@ -16,18 +16,14 @@ class Controller {
     protected $current_lang;
 
     public function __construct() {
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
+        Security::secureSession();
         
         $this->db = Database::getInstance();
         $this->loadGlobalSettings();
         $this->initLanguage();
-        Security::secureSession();
+
         Security::validateCsrf();
         $this->sanitizeRequest();
-        
-        
         $this->loadNavbar();
     }
 
@@ -55,11 +51,10 @@ class Controller {
         if ($isAdminPath) {
             $lang = $_SESSION['app_lang'] ?? $fallback;
         } else {
-            $lang = isset($_COOKIE['app_lang']) ? $_COOKIE['app_lang'] : $fallback;
+            $lang = $_COOKIE['app_lang'] ?? $fallback;
         }
 
         $this->current_lang = in_array($lang, ['id_ID', 'en_US']) ? $lang : $fallback;
-
         \App\Helpers\Gettext::init($this->current_lang, 'messages');
     }
 
@@ -71,7 +66,7 @@ class Controller {
     }
 
     public function view($view, $data = [], $layoutName = 'public') {
-        Security::setHeaders($layoutName === 'admin');
+        Security::setHeaders();
         
         $globalPublicData = [];
         if ($layoutName === 'public' || $layoutName === 'blank') {

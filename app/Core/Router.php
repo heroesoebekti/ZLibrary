@@ -1,6 +1,8 @@
 <?php
 namespace App\Core;
 
+use App\Helpers\Security;
+
 class Router {
     protected $controller = 'HomeController';
     protected $method     = 'index';
@@ -76,16 +78,8 @@ class Router {
     }
 
     private function csrfMiddleware() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (session_status() === PHP_SESSION_NONE) session_start();
-            $token = $_POST['csrf_token'] ?? '';
-            $valid = isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $token);
-            
-            if (!$valid) {
-                http_response_code(403);
-                die("<h1>403 Forbidden</h1>");
-            }
-        }
+        Security::secureSession();
+        Security::validateCsrf();
     }
 
     private function parseUrl() {

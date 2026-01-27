@@ -5,6 +5,8 @@
  * Widget Description: Tracking Harian, Bulanan, dan Geolocation Negara.
  */
 
+use App\Helpers\Security;
+
 $w_id = (int)($data['id'] ?? 0);
 $is_instance = (isset($item['is_instance']) && ($item['is_instance'] === 'true' || $item['is_instance'] === true));
 
@@ -15,7 +17,8 @@ $stats = json_decode($data['content'] ?? '[]', true) ?: [
     'countries' => []
 ];
 
-if (session_status() === PHP_SESSION_NONE) session_start();
+Security::secureSession();
+
 if ($w_id > 0 && !isset($_SESSION['v_stat_' . $w_id])) {
     $today = date('Y-m-d');
     $month = date('Y-m');
@@ -67,7 +70,7 @@ $bulan_ini = $stats['monthly'][date('Y-m')] ?? 1;
         <span class="text-[9px] text-slate-400 font-black uppercase tracking-widest block mb-4 text-center">Asal Negara Terbanyak</span>
         <div class="space-y-3">
             <?php 
-            arsort($stats['countries']); // Urutkan negara terbanyak
+            arsort($stats['countries']); 
             $top_countries = array_slice($stats['countries'], 0, 3);
             foreach ($top_countries as $code => $count): 
             ?>
