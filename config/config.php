@@ -5,8 +5,10 @@ define('BASE_URL', 'http://localhost/zlib');
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
+define('DB_PORT','3304');
 define('DB_NAME', 'zlibrary');
 define('DB_DRIVER', 'pdo');
+
 
 define('APP_LANG', 'en_US');
 define('ROOT_PATH', realpath(dirname(__DIR__) . '/'));
