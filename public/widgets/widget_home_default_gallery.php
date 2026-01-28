@@ -31,7 +31,7 @@ $display_title = $widget_data['widget_name'] ?? 'Gallery Kegiatan';
                     }
                 ?>
                 <div class="group relative overflow-hidden rounded-3xl shadow-lg <?= $class_box ?>">
-                    <?= $asset::render_image($g['gambar'], "w-full h-full object-cover group-hover:scale-110 transition duration-700",'gallery') ?>                       
+                    <?= $asset::render_image($g['gambar'], "w-full h-full object-cover group-hover:scale-110 transition duration-700",'gallery',htmlspecialchars($g['judul'] ?? ''))?>                       
                     <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-center items-center text-white p-4 text-center">
                         <?php if(!empty($g['kategori'])): ?>
                             <span class="bg-white/20 px-3 py-1 rounded-full text-[10px] mb-2 backdrop-blur-md uppercase tracking-widest">

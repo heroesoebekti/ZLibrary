@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo isset($title) ? $title : SITE_TITLE ; ?></title>
     <script nonce="<?= $_SESSION['csp_nonce']; ?>" src="<?= BASE_URL ?>/assets/js/jquery-3.7.1.min.js"></script>
-    <link nonce="<?= $_SESSION['csp_nonce']; ?>" href="<?= BASE_URL ?>/assets/dist/output.css" rel="stylesheet">
+    <link nonce="<?= $_SESSION['csp_nonce']; ?>" rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.min.css">
     <link nonce="<?= $_SESSION['csp_nonce']; ?>" rel="stylesheet" href="<?= BASE_URL ?>/assets/css/fonts.css">
     <?php include 'css_generator.php'; ?>
     <link rel="icon" type="image/png" sizes="16x16"  href="<?= BASE_URL ?>/assets/img/default/favicon.png">

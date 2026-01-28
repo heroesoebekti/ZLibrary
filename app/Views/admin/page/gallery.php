@@ -54,7 +54,7 @@
                         <label class="text-[10px] font-black uppercase text-slate-400 block mb-1.5 tracking-widest"><?= __('Image File') ?></label>
                         <?php if($edit_data): ?>
                             <div class="mb-3 rounded-custom overflow-hidden border border-slate-200 aspect-video shadow-sm bg-slate-100">
-                                <img src="<?= BASE_URL ?>/assets/img/gallery/<?= $edit_data['gambar'] ?>" class="w-full h-full object-cover">
+                                <?= $asset::render_image($edit_data['gambar'] ,"w-full h-full object-cover", 'gallery',"") ?>
                             </div>
                         <?php endif; ?>
                         <div class="relative group">
@@ -89,7 +89,7 @@
                         <tr class="hover:bg-slate-50/50 transition-colors <?= !$isActive ? 'bg-slate-50/30' : ''; ?>">
                             <td class="p-6 w-32">
                                 <div class="w-24 h-14 rounded-custom overflow-hidden border border-slate-200 shadow-sm <?= !$isActive ? 'grayscale opacity-40' : ''; ?>">
-                                    <img src="<?= BASE_URL ?>/assets/img/gallery/<?= $row['gambar']; ?>" class="w-full h-full object-cover">
+                                    <?= $asset::render_image($row['gambar'] ,"w-full h-full object-cover", 'gallery',$row['judul']) ?>
                                 </div>
                             </td>
                             <td class="p-6">

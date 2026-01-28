@@ -1,6 +1,7 @@
 <?php
 /**
  * Widget Name: Pengumuman
+ * Widget Description: Menampilkan daftar pengumuman terbaru.
  */
 
 $display_title = $widget_data['widget_name'] ?? 'Pengumuman';

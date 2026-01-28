@@ -2,13 +2,13 @@
 namespace App\Helpers;
 
 class Asset {
-    public static function render_image($filename, $class = "", $folder = 'posts') {
+    public static function render_image($filename, $class = "", $folder = 'posts', $alt) {
         $relativePath = "assets/img/{$folder}/" . $filename;
         $fullPath = BASE_PATH . '/' . $relativePath;
 
         if (!empty($filename) && file_exists($fullPath)) {
             $url = BASE_URL . '/' . $relativePath;
-            return '<img src="' . $url . '" class="' . $class . '" alt="Image" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';">';
+            return '<img src="' . $url . '" class="' . $class . '" alt="' . $alt . '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';">';
         }
         return '
         <div class="flex items-center justify-center bg-slate-100 w-full h-full min-h-[inherit] ' . $class . '">

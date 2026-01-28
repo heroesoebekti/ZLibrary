@@ -41,7 +41,7 @@ class WidgetController extends Controller {
     }
 
     private function syncWidgets() {
-        $path = BASE_PATH . '/widgets/*.php';
+        $path = BASE_PATH . '/widgets/widget_*.php';
         $res = $this->model->getAll();
         $dbWidgets = [];
 

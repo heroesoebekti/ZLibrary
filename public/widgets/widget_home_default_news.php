@@ -24,7 +24,7 @@ $display_title = $widget_data['widget_name'] ?? 'Berita Terbaru';
             <?php foreach($berita as $b): ?>
             <article class="group">
                 <div class="relative overflow-hidden rounded-[1rem] mb-6 aspect-[16/10] shadow-sm">
-                    <?= $asset::render_image($b['gambar'], "w-full h-full object-cover group-hover:scale-110 transition duration-500") ?>
+                    <?= $asset::render_image($b['gambar'], "w-full h-full object-cover group-hover:scale-110 transition duration-500",'posts', strip_tags($b['judul'] ?? '')) ?>
                 </div>
                 <div class="flex items-center gap-3 mb-3">
                     <span class="text-[10px] font-black uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-lg">Update</span>

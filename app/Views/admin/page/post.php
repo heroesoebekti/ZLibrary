@@ -67,7 +67,7 @@
                         <td class="p-6">
                             <div class="flex items-center gap-4">
                                 <div class="w-16 h-12 rounded-lg overflow-hidden border border-slate-200 shadow-sm bg-slate-100 flex-shrink-0">
-                                    <?= $asset::render_image($row['gambar'], "w-full h-full object-cover") ?>
+                                    <?= $asset::render_image($row['gambar'], "w-full h-full object-cover", 'posts',$row['judul']) ?>
                                 </div>
                                 <div>
                                     <h3 class="text-sm font-bold text-slate-800 leading-snug"><?= $row['judul'] ?></h3>
