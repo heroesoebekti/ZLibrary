@@ -31,7 +31,8 @@ class Router {
                 'arsip'    => 'PostController', 
                 'search'   => 'SearchController', 
                 'auth'     => 'AuthController',
-                'language' => 'LanguageController'
+                'language' => 'LanguageController',
+                'sitemap'  => 'SitemapController'
             ];
 
             if (isset($url[0])) {

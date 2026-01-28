@@ -43,4 +43,20 @@ class HomeModel {
         $sql = "SELECT * FROM widgets WHERE layout_position != 'library' AND is_active = 1 ORDER BY order_position ASC";
         return $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getSitemapData() {
+        $sql = "SELECT slug, 'post' as kategori , tanggal_dibuat, '0.8' as priority FROM posts WHERE status = 'publish'
+                UNION 
+                SELECT slug, 'halaman' as kategori, tanggal_dibuat, '0.5' as priority FROM pages
+                ORDER BY tanggal_dibuat DESC";
+        try {
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (\PDOException $e) {
+            error_log($e->getMessage());
+            return [];
+        }
+    }
+
 }
