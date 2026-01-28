@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title><?= $title ?></title>
-    <link href="<?= BASE_URL ?>/assets/dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.min.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/fonts.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css">
     <script src="<?= BASE_URL ?>/assets/js/jquery-3.7.1.min.js"></script>
